@@ -3,12 +3,13 @@ import requests
 import urlopen
 import json
 
-#sets header in request to api 
+##def getQuote():
+  #sets header in request to api 
 headers = {
   'Accept': 'application/json'
 }
 #pulls 1 random quote from the api 
-request = requests.get('https://goquotes-api.herokuapp.com/api/v1/random?count=1', headers=headers)
+request = requests.get("https://goquotes-api.herokuapp.com/api/v1/random?count=1", headers=headers)
 
 #this is confusing at first but to break it down, the data is in a dict{list[dict{}]}
 #pulls desired data out of the dictionary 
@@ -30,3 +31,5 @@ fullOutput= '"'+quote+'"'+' -'+author
 
 #test output, ignore the 200 it just means the connect from urlopen worked
 print(fullOutput)
+  
+ ## return fullOutput

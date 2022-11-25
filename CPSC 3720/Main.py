@@ -1,5 +1,12 @@
 ## this is the code file for the main function as well as the regular code to tie GUI with the APIs.
 
+## Imports
+import QuoteAPI_1
+import ZipAPI
+import WeatherAPI
+import InterfaceGUI
+
+
 def Activities(code):
     ActivitiesList = []
     match code:
@@ -22,23 +29,24 @@ def Activities(code):
             #Thunderstorm
             dsad
             
-            
     return ActivitiesList
 
 def main():
     # User input on the zipcode they want to search the weather on
     zipCode = input ("Enter your zipcode: ")
-    # User input on the radius (miles) they want the app to look at 
-    # other close by cities for better weather
-    zipRadius = input ("Enter radius distance in miles to search from your zipcode: ")
     
     ## Call Quote API and display the quote of the day
+    quote = QuoteAPI_1.getQuote()
+    
     ## Call the Zip API
+    coords = ZipAPI.getCoords(zipCode)
+    
     ## Call Weather API to get weather
+    weatherInfo = WeatherAPI.getWeather(coords.)
+    
     ## Use the weather code to display the activities
-    ## Call the Zip Radius API 
-    ## Call Weather API to get weather on the list of zipcodes within the radius
-    ## Display the weather and activities to do for those list of zipcodes
+    
+    
     ## Let the user decide to redo the search or exit. 
     
 
