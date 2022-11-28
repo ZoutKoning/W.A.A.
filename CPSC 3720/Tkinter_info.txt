@@ -1,0 +1,39 @@
+# link - https://realpython.com/python-gui-tkinter/#building-your-first-python-gui-application-with-tkinter
+import tkinter as tkApp
+
+#creates a window of the app
+window = tkApp.Tk()
+
+#close the window by clicking on close button or with..
+window.destroy()
+
+#adding a widget to display text
+greeting = tkApp.Label(text="Hello, user")
+
+#adding the widget to the window using pack
+greeting.pack()
+
+#event loop
+window.mainloop()
+
+
+#displaying text/images with label widgets
+label = tkApp.Label(
+   text = "Hello, user",
+   foreground = "white",
+   background = "black",
+   width = 50
+   height = 50
+)
+
+#clickable buttons with button widgets
+button = tkApp.Button(
+   text="Next->",
+   width = 15,
+   height = 5,
+   fg = "yellow"
+   bg = "blue"
+)
+
+#user input with entry widgets
+entry = tkApp.Entry(fg="yellow",bg="blue",width=50)

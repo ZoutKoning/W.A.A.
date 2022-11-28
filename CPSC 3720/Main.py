@@ -1,10 +1,10 @@
 ## this is the code file for the main function as well as the regular code to tie GUI with the APIs.
 
 ## Imports
-import QuoteAPI_1
-import ZipAPI
-import WeatherAPI
-import InterfaceGUI
+from QuoteAPI_1 import *
+from ZipAPI import *
+from WeatherAPI import *
+
 
 
 def Activities(code):
@@ -36,13 +36,12 @@ def main():
     zipCode = input ("Enter your zipcode: ")
     
     ## Call Quote API and display the quote of the day
-    quote = QuoteAPI_1.getQuote()
+    quote = getQuote()
     
     ## Call the Zip API
-    coords = ZipAPI.getCoords(zipCode)
+    coords = getCoords(zipCode)
     
     ## Call Weather API to get weather
-    weatherInfo = WeatherAPI.getWeather(coords)
     
     ## Use the weather code to display the activities
     

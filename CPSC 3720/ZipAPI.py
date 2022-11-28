@@ -1,6 +1,8 @@
 import requests
 from requests.auth import HTTPBasicAuth
 
+# got API Info/Code from https://zipapi.us/docs/
+
 #parameter: zip: zip code inputed by the user
 #returns: dict in the form of {"city_state", "latitude", "longitude"}
 def getCoords(zip):
