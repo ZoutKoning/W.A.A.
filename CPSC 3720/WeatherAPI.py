@@ -1,4 +1,4 @@
-# WEATHER API
+# WEATHER API - Open Meteo (Old weather API)
 
 import requests
 from requests.auth import HTTPBasicAuth
@@ -9,6 +9,7 @@ weather=request.json()
 
 longitude = weather['longitude']
 #print(longitude)
+
 latitude = weather['latitude']
 
 timezone = weather['timezone']
