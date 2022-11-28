@@ -42,7 +42,7 @@ def main():
     coords = ZipAPI.getCoords(zipCode)
     
     ## Call Weather API to get weather
-    weatherInfo = WeatherAPI.getWeather(coords.)
+    weatherInfo = WeatherAPI.getWeather(coords)
     
     ## Use the weather code to display the activities
     
