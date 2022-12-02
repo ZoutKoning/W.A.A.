@@ -56,7 +56,8 @@ class Helper:
         else:
             self.setQuoteDict(jsonDict["Quote of the day"])
         f.close()
-
-h = Helper()  
-h.overWriteFile()
-print(h.getQuoteDict())
+    
+    #  Fuction to store and suggest activities based on weather
+    def Activities(weather):
+        suggested_acts
+        return something
