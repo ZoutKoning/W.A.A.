@@ -1,5 +1,6 @@
 import requests
 import json
+# Vedant Patel, Tirth Patel, Joseph Suter
 
 def getWeatherAPI(location_info):
     # location could use "zipcode", "latitude,longitude", "city,state" or "city,country"

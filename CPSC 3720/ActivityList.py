@@ -1,4 +1,5 @@
 #Activities List
+# Joesph Suter,  Tirth Patel
 import random
 
 def Activites(weather):

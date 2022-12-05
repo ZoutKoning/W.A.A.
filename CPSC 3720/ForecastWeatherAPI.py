@@ -1,5 +1,5 @@
 import requests
-
+# Vedant Patel, Tirth Patel, Joseph Suter
 def forecastWeatherAPI(location_info):
     # location could use "zipcode", "latitude,longitude", "city,state" or "city,country"
     location = location_info
