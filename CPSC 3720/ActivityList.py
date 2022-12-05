@@ -10,6 +10,7 @@ def Activites(weather):
     stormy_weather = ["tstorm","tstorms", "tstormsw","tstormn", "tstormsn", "tstormswn"],
    
     # String Compare passed in weather to lists
+    
     if(weather in hot_weather):
         #HotWeather act  (swim, pool, lake, beach)...
         hot_weather_acts = ["Go for a Swim", "Locate (nearest) Icecream", "Stand infront of A/C"]
