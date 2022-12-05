@@ -20,14 +20,14 @@ def Activites(weather):
         pass
     if(weather in rainy_weather):
         #rainy weather acts (go to gym, go see a movie, go shopping, do a puzzle, read a book, video games)
-        good_rainy_acts = ["Go to the Gym", "Go See a Movie", "Go Shopping", "Do a Puzzle", "Read a Book", "Play Some Video Games"]
+        good_rainy_acts = ["Go to the Gym", "Go See a Movie", "Go Shopping", "Do a Puzzle", "Read a Book", "Play a Video Game"]
         pass
     if(weather in snowy_weather):
         good_snowy_acts = ["Go Sledding", "Have Hot-Coco", "Build a Snowman", "Have a Snowball Fight", "Go Skiing","Go Snowboarding"]
         #snowy weather acts (sledding, build a snowman, ski, sled)(Building Snow man Snowball fights Snowboard)
         pass
     if(weather in stormy_weather):
-        stormy_weather_acts = ["Read a book", "Watch a movie", "Do a puzzle", "Play a video-game","Bake cookies"]
+        stormy_weather_acts = ["Read a book", "Watch a Movie", "Do a Puzzle", "Play a Video Game","Bake Cookies"]
         #stormy weather acts (go see a movie, go shopping, do a puzzle, read a book, video games) 
         # (Reading book at home Playing board games at home Watching movies/TV shows at home Bake cookies
 
