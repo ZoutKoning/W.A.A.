@@ -46,7 +46,7 @@ def filterResponse(response):
                     "feelslikeC": resp_json['response'][0]['periods'][i]['feelslikeC'],
                     "feelslikeF": resp_json['response'][0]['periods'][i]['feelslikeF'],
                     'weather': resp_json['response'][0]['periods'][i]['weatherPrimary'],
-                    
+                    'icon': resp_json['response'][0]['periods'][i]['icon']
                 }
                 fullForecast.append(res)
         else:

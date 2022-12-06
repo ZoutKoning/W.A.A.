@@ -32,9 +32,13 @@ def filterResponse(response):
             res = {
                 #Current Weather Description (Sunny/Rainy/ETC)
                 "current weather": resp_json["response"]["ob"]["weather"],
+                "icon": resp_json["response"]["ob"]["icon"],
                 #Current Temperature 
                 "current Temp (F)": resp_json["response"]["ob"]["tempF"],
-                "current Temp (C)": resp_json["response"]["ob"]["tempC"]
+                "current Temp (C)": resp_json["response"]["ob"]["tempC"],
+                "humidity": resp_json["response"]["ob"]["humidity"],
+                "windMPH": resp_json["response"]["ob"]["windMPH"],
+                "precipIN": resp_json["response"]["ob"]["precipIN"]
             }
         else:
             res = resp_json["error"]["description"]

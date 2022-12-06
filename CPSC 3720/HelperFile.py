@@ -6,6 +6,20 @@ class Helper:
     def __init__(self):
         self.QDict = {}
         self.counter = 0
+        self.icon = ""
+        self.blVal = True
+    
+    def set_blFirstCall(self, bl_val):
+        self.blVal = bl_val
+        
+    def get_blFirstCall(self):
+        return self.blVal
+    
+    def setWeatherIcon(self, weatherIcon):
+        self.icon = weatherIcon
+    
+    def getWeatherIcon(self):
+        return self.icon
 
     def setQuoteDict(self, dict):
         self.QDict = dict
@@ -56,8 +70,15 @@ class Helper:
         else:
             self.setQuoteDict(jsonDict["Quote of the day"])
         f.close()
-    
-    #  Fuction to store and suggest activities based on weather
-    def Activities(weather):
-        suggested_acts
-        return something
+        
+    def formatCurrWeather(self, Dict):
+        formatStr = "Current weather: " + Dict["current weather"]
+        formatStr = formatStr + "\nCurrent Temp(C): " + str(Dict["current Temp (C)"])
+        formatStr = formatStr + "\nHumidity: " + str(Dict["humidity"])
+        formatStr = formatStr + "\nWind Speed(MPH): " + str(Dict["windMPH"])
+        formatStr = formatStr + "\nPrecip(IN): " + str(Dict["precipIN"])
+        return formatStr
+        
+    def formatForecastWeather(self, Dict):
+        formatStr = ""
+        return formatStr
