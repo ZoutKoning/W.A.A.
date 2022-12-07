@@ -2,6 +2,8 @@ import requests
 import json
 # Vedant Patel, Tirth Patel, Joseph Suter
 
+# code API snippet from https://rapidapi.com/aerisweather-aerisweather/api/aerisweather1
+
 def forecastWeatherAPI(location_info):
     # location could use "zipcode", "latitude,longitude", "city,state" or "city,country"
     location = location_info

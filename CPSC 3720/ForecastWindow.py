@@ -1,19 +1,16 @@
 # Written by Vedant Patel
-# 18 November, 2022
-# Interface GUI
 
 #Import the proper libraries
 import tkinter as tk   
 from tkinter import *
 from HelperFile import *
-from ForecastWeatherAPI import forecastWeatherAPI
 from PIL import ImageTk, Image
 
 
 def openWindow(Dict):
     h = Helper() 
-    topWin = Toplevel()
-    topWin.grab_set()      # puts the main window on hold until the activity window is closed.
+    topWin = Toplevel()    #creating main window for forecast window
+    topWin.grab_set()      # puts the main window on hold until the forecast window is closed.
     topWin.geometry("400x200")
     topWin.title("7-Day Forecast Weather")
 
@@ -61,24 +58,36 @@ def openWindow(Dict):
     second_frame = Frame(my_canvas, bg = "lightsteelblue2")
     #forecast_weather = h.testForecast()
     forecast_weather = Dict
+    # for each day in the forecast json dict do the following:
+    # which is adding day label, weather icon, and weather info. 
     for dictVal in forecast_weather:
+        # formats the weather info into well formatted text. 
         strValue = h.formatForecastWeather(dictVal)
+        # creates a frame around the info for each day.
         tempFrame = Frame(second_frame, width=50, height = 10)
-        Label(tempFrame, text=dictVal["date"]).pack(pady=2)
+        # date label
+        Label(tempFrame, text="Date: "+ dictVal["date"]).pack(pady=2)
+        # weather icon
         iconP = "Icons/" + str(dictVal["icon"])
         icon = ImageTk.PhotoImage(Image.open(iconP))
+        # creates a label to put the image in. 
         iconL = Label(tempFrame)
         iconL.configure(image=icon)
         iconL.image = icon
         iconL.pack()
+        # creates a text field for weather info. 
         tempText = Text(tempFrame, width = 36, height= 4, wrap=WORD)
         tempText.insert(INSERT, strValue)
         tempText.pack()
+        tempText.configure(state=DISABLED)
         tempFrame.pack(side=LEFT, padx=10, pady= 15)
     
+    # creates the window using the frames. 
     my_canvas.create_window((0,0),window = second_frame, anchor = "nw")
-                
+
+    # upon closing, releases the hold of the main window/app and destorys the forecast window
     def on_closingTop():  
         topWin.grab_release()      # releases the control so the user can interact with the main window
         topWin.after(100,lambda:topWin.destroy())
+    # calls on_closingTop function when the "X" button is clicked to close the window. 
     topWin.protocol("WM_DELETE_WINDOW", on_closingTop)

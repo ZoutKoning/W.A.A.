@@ -1,4 +1,5 @@
 import requests
+# written by Cole Ramos
 
 # got API Info/code from https://api-ninjas.com/api/quotes
 

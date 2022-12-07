@@ -2,14 +2,16 @@ import requests
 import json
 # Vedant Patel, Tirth Patel, Joseph Suter
 
+# code API snippet from https://rapidapi.com/aerisweather-aerisweather/api/aerisweather1
+
 def getWeatherAPI(location_info):
     # location could use "zipcode", "latitude,longitude", "city,state" or "city,country"
     location = location_info
     url = "https://aerisweather1.p.rapidapi.com/observations/" + str(location)
 
     headers = {
-        #"X-RapidAPI-Key": "f125d5bbc2msh34f2dee4a686e61p1cd73bjsnfadff23586d3",
-        "X-RapidAPI-Key": "7452e53232msh8e0499292d6948cp17cd9djsn7df865f827fc",
+        "X-RapidAPI-Key": "f125d5bbc2msh34f2dee4a686e61p1cd73bjsnfadff23586d3",
+        #"X-RapidAPI-Key": "7452e53232msh8e0499292d6948cp17cd9djsn7df865f827fc",
         "X-RapidAPI-Host": "aerisweather1.p.rapidapi.com"
     }
     try: 

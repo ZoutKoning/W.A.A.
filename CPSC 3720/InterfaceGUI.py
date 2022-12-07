@@ -15,7 +15,7 @@ from PIL import ImageTk, Image
 #Create and Initialize Window
 window = tk.Tk()                #Create Window
 window.geometry("500x600")      #Width and height of window
-window.resizable(1,1)           #Makes window size fixed
+window.resizable(True, True)           #Makes window size fixed
 window.title("Weather App")     #Window Title
 
 
@@ -66,15 +66,18 @@ second_frame = Frame(my_canvas, bg = "lightsteelblue2")
 # The greeting popup when the application is opened
 greeting = tk.Label(second_frame, fg = "lightblue4", text = "Welcome to the Weather Activity App", font = 'Sans-serif 18 bold').pack(pady = 10)
 
+# creates Helpers class object to call on the helper functions.
 h = Helper()  
 h.openningApp()
 quote = h.getQuoteDict()
 
+# used to update quote text in the app
 def quoteT():
     qText = "Quote: " + quote["quote"]
     quoteText.insert(INSERT, qText)
     quoteText.config(state=DISABLED)
     
+# used to update author and category info underneath the quote text. 
 def author_categoryT():
     acText = "Author: " + quote["author"] + "\nCategory: " + quote["category"]
     authorText.insert(INSERT, acText)
@@ -89,15 +92,17 @@ authorText = Text(second_frame, width = 46, height = 2, wrap=WORD)
 author_categoryT()
 authorText.pack()
 
+# dummy label to create some space
 dummylabel = Label(second_frame, bg = "lightsteelblue2").pack(pady=5)
-    
+
+# called on to change the icon of the current weather icon
 def changeIcon():
     iconPath = "Icons/" + h.getWeatherIcon()
     iconChange = ImageTk.PhotoImage(Image.open(iconPath))
     iconLabel.configure(image = iconChange, bg= "white")
     iconLabel.image = iconChange
 
-# would need text field to show the weather info. 
+# called on to check the location info and update the current weather information/fields.
 def weatherFunc():
     bl_Val = h.get_blFirstCall()
     if (bl_Val == False):
@@ -141,15 +146,16 @@ def weatherFunc():
         currWeatherText.insert(INSERT, val)
     
 
-# Prompt the user to enter their zipcode
+# Prompt the user to enter their location
 loc_value = StringVar()
 loc_head= Label(second_frame, text = 'Enter Location:',fg = "black", font = 'Sans-serif 12 bold').pack(pady = 10)
 loc_Frame = LabelFrame(second_frame, text ="Location: 'zipcode', 'latitude,longitude', 'city,state' or 'city,country'")
 inp_loc = Entry(loc_Frame, textvariable = loc_value,  width = 32, font = 'Sans-serif 14 bold').pack() #entry field
 loc_Frame.pack()
 
-# This retrieves the zipcode after being entered
+# This retrieves the location after being entered
 location = loc_value.get()
+
 #Button to check the weather
 Button(
     second_frame, 
@@ -180,6 +186,7 @@ currWeather_frame.pack()
 # add some space between different parts.
 dummylabel = Label(second_frame, bg = "lightsteelblue2").pack()
 
+# called on when the user wants to see the forecast.
 def callOpenWin():
     dictList = h.getDictList()
     openWindow(dictList)
