@@ -5,7 +5,7 @@ Vedant Patel, Zoie Rast, Tirth Patel, Joseph Suter, Cole Ramos
 HOW TO RUN:
 1. Download files
 2. Open terminal
-3. Use command python -u "path\InterfaceGUI.py" (replace path with your install pathway to the files)
+3. Use command python -u "path \InterfaceGUI.py" (replace path with your install pathway to the files)
 4. Follow the On screen instructions and enjoy your day
   
 RESULTS 
