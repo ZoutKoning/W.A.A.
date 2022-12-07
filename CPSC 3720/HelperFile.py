@@ -1,6 +1,10 @@
+# Written by Vedant Patel
+
 import datetime
 from QuoteAPI_1 import *
 import json
+from ForecastWeatherAPI import filterResponse
+from CurrentWeatherAPI import filterCurrResponse
 
 class Helper:
     def __init__(self):
@@ -8,6 +12,13 @@ class Helper:
         self.counter = 0
         self.icon = ""
         self.blVal = True
+        self.loc = ""
+    
+    def setLocation(self, location):
+        self.loc = location
+    
+    def getLocation(self):
+        return self.loc
     
     def set_blFirstCall(self, bl_val):
         self.blVal = bl_val
@@ -72,13 +83,27 @@ class Helper:
         f.close()
         
     def formatCurrWeather(self, Dict):
-        formatStr = "Current weather: " + Dict["current weather"]
-        formatStr = formatStr + "\nCurrent Temp(C): " + str(Dict["current Temp (C)"])
+        formatStr = "Current weather: " + str(Dict["current weather"])
+        formatStr = formatStr + "\nCurrent Temp(F): " + str(Dict["current Temp (F)"])
         formatStr = formatStr + "\nHumidity: " + str(Dict["humidity"])
         formatStr = formatStr + "\nWind Speed(MPH): " + str(Dict["windMPH"])
         formatStr = formatStr + "\nPrecip(IN): " + str(Dict["precipIN"])
         return formatStr
         
     def formatForecastWeather(self, Dict):
-        formatStr = ""
+        formatStr = "Current weather: " + str(Dict["weather"])
+        formatStr = formatStr + "\nHi/Low(F): " + str(Dict["maxF"]) + "/" + str(Dict["minF"])
+        formatStr = formatStr + "\nFeels like(F): " + str(Dict["feelslikeF"])
         return formatStr
+    
+    def testCurr(self):
+        f = open("Current.json", "r")
+        jsonDict = json.load(f)
+        res = filterCurrResponse(jsonDict)
+        return res
+
+    def testForecast(self):
+        f = open("Forecast.json", "r")
+        jsonDict = json.load(f)
+        res = filterResponse(jsonDict)
+        return res

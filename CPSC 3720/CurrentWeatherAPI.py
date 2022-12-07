@@ -8,13 +8,15 @@ def getWeatherAPI(location_info):
     url = "https://aerisweather1.p.rapidapi.com/observations/" + str(location)
 
     headers = {
-        "X-RapidAPI-Key": "f125d5bbc2msh34f2dee4a686e61p1cd73bjsnfadff23586d3",
+        #"X-RapidAPI-Key": "f125d5bbc2msh34f2dee4a686e61p1cd73bjsnfadff23586d3",
+        "X-RapidAPI-Key": "7452e53232msh8e0499292d6948cp17cd9djsn7df865f827fc",
         "X-RapidAPI-Host": "aerisweather1.p.rapidapi.com"
     }
     try: 
         response = requests.request("GET", url, headers=headers)
         try:
-            result = filterResponse(response)
+            resp_json = response.json()
+            result = filterCurrResponse(resp_json)
         except:
             result = "Exception: filtering and retrieving cretain values from the GET response "
     except:
@@ -22,8 +24,7 @@ def getWeatherAPI(location_info):
     
     return result 
 
-def filterResponse(response):
-    resp_json = response.json()
+def filterCurrResponse(resp_json):
     key = "success"
     if key in resp_json:
         bl_success = resp_json["success"]
@@ -45,3 +46,4 @@ def filterResponse(response):
     else:
         res = resp_json["message"]
     return res
+

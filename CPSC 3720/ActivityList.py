@@ -4,18 +4,27 @@ import random
 
 def Activites(weatherIcon):
 #Arrays/Lists contian weather terms
-    hot_dry_weather = ["dust.png", "hot.png"]
-    good_weather = ["clear.png", "clearw.png", "cloudy.png", "fair.png", "flurries.png", "hazy.png", "mcloudy.png", "pcloudy.png",
-                    "sunny.png", "sunnyw.png", "wind.png"]
-    cold_weather = ["cloudyw.png", "cold.png", "flurriesw.png", "mcloudyw.png", "pcloudyw.png"]
-    rainy_weather = ["drizzle.png", "drizzlef.png", "fdrizzle.png", "fog.png", "freezingrain.png", "mcloudyr.png", "mcloudyrw.png",
-                     "pcloudyr.png", "pcloudyrw.png", "rain.png", "rainn.png", "rainandsnow.png", "raintosnow.png", "rainw.png",
-                     "showers.png", "showersw.png", "wintrymix.png"]
-    snowy_weather = ["blizzard.png","blowingsnow.png", "mcloudys.png", "mcloudysf.png", "mcloudysfw.png", "mcloudysw.png",
-                     "pcloudys.png", "pcloudysf.png", "pcloudysfw.png", "pcloudysw.png", "sleet.png", "sleetsnow.png", 
-                     "snow.png", "snowshowers.png", "snowshowersw.png", "snowtorain.png", "snoww.png"]
-    stormy_weather = ["mcloudyt.png", "mcloudytw.png", "pcloudyt.png", "pcloudytw.png", "tstorm.png", "tstorms.png", "tstormsw.png"]
-    na_weather = ["na.png", "smoke.png"]
+    hot_dry_weather = ["dust.png", "dustn.png", "hot.png"]
+    good_weather = ["clear.png", "clearn.png", "clearw.png", "clearwn.png", "cloudy.png", "cloudyn.png", "fair.png", "fairn.png",
+                    "flurries.png", "flurriesn.png", "hazy.png", "hazyn.png", "mcloudy.png", 'mcloudyn.png', "pcloudy.png",
+                    "pcloudyn.png", "sunny.png", "sunnyn.png", "sunnyw.png", "sunnywn.png", "wind.png", "windn.png"]
+    cold_weather = ["cloudyw.png", "cloudywn.png", "cold.png", "coldn.png", "flurriesw.png", "flurrieswn.png", 
+                    "mcloudyw.png", "mcloudywn.png", "pcloudyw.png", "pcloudywn.png"]
+    rainy_weather = ["drizzle.png", "drizzlef.png", "drizzlen.png", "fdrizzle.png", "fdrizzlen.png", "fog.png", "fogn.png",
+                     "freezingrain.png", "freezingrainn.png", "mcloudyr.png", "mcloudyrn.png", "mcloudyrw.png", "mcloudrwn.png",
+                     "pcloudyr.png", "pcloudyrn.png", "pcloudyrw.png", "pcloudyrwn.png", "rain.png", "rainn.png", 
+                     "rainandsnow.png", "rainandsnown.png", "raintosnow.png", "raintosnown.png", "rainw.png",
+                     "showers.png", "showersn.png", "showersw.png", "showerswn.png", "wintrymix.png", "wintrymixn.png"]
+    snowy_weather = ["blizzard.png", "blizzardn.png", "blowingsnow.png", "blowingsnown.png","mcloudys.png", "mcloudysn.png",
+                     "mcloudysf.png", "mcloudysfn.png", "mcloudysfw.png", "mcloudysfwn.png", "mcloudysw.png", "mcloudswn.png",
+                     "pcloudys.png", "pcloudysn.png", "pcloudysf.png", "pcloudysfn.png", "pcloudysfw.png", "pcloudrsfwn.png",
+                     "pcloudysw.png", "pcloudyswn.png", "sleet.png", "sleetn.png", "sleetsnow.png", "sleetsnown.png", 
+                     "snow.png", "snown.png", "snowshowers.png", "snowshowersn.png", "snowshowersw.png", "snowshowerswn.png",
+                     "snowtorain.png", "snowtorainn.png", "snoww.png", "snowwn.png"]
+    stormy_weather = ["mcloudyt.png", "mcloudytn.png", "mcloudytw.png", "mcloudytwn.png", "pcloudyt.png", "pcloudytn.png",
+                      "pcloudytw.png", "pcloudytwn.png", "tstorm.png", "tstormn.png", "tstorms.png", "tstormsn.png",
+                      "tstormsw.png", "tstormswn.png"]
+    na_weather = ["na.png", "smoke.png", "smoken.png"]
     
     # Variable to call for the GUI to get the returns 
     ret_act = ""

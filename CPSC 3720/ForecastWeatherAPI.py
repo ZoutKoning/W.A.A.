@@ -1,12 +1,15 @@
 import requests
+import json
 # Vedant Patel, Tirth Patel, Joseph Suter
+
 def forecastWeatherAPI(location_info):
     # location could use "zipcode", "latitude,longitude", "city,state" or "city,country"
     location = location_info
     url = "https://aerisweather1.p.rapidapi.com/forecasts/" + str(location)
 
     headers = {
-        "X-RapidAPI-Key": "f125d5bbc2msh34f2dee4a686e61p1cd73bjsnfadff23586d3",
+        #"X-RapidAPI-Key": "f125d5bbc2msh34f2dee4a686e61p1cd73bjsnfadff23586d3",
+        "X-RapidAPI-Key": "7452e53232msh8e0499292d6948cp17cd9djsn7df865f827fc",
         "X-RapidAPI-Host": "aerisweather1.p.rapidapi.com"
     }
     # receives api response and sends it to be filtered
@@ -14,7 +17,8 @@ def forecastWeatherAPI(location_info):
     try: 
         response = requests.request("GET", url, headers=headers)
         try:
-            result = filterResponse(response)
+            resp_json = response.json()
+            result = filterResponse(resp_json)
         except:
             result = "Exception: filtering and retrieving cretain values from the GET response "
     except:
@@ -22,8 +26,7 @@ def forecastWeatherAPI(location_info):
     
     return result 
     
-def filterResponse(response):
-    resp_json = response.json()
+def filterResponse(resp_json):
     key = "success"
     if key in resp_json:
         bl_success = resp_json["success"]
@@ -38,15 +41,15 @@ def filterResponse(response):
                 #the following lines 37-44 pull the desired information from the json dictionary and sore them in their respective variables
                 #they are stored in a listed dictionary, hence the nested [] to find the desired info 
                 res = {
-                    'time': strdate[0],
+                    'date': strdate[0],
                     "minC": resp_json['response'][0]['periods'][i]['minTempC'],
                     "maxC": resp_json['response'][0]['periods'][i]['maxTempC'],
                     "minF": resp_json['response'][0]['periods'][i]['minTempF'],
                     "maxF": resp_json['response'][0]['periods'][i]['maxTempF'],
                     "feelslikeC": resp_json['response'][0]['periods'][i]['feelslikeC'],
                     "feelslikeF": resp_json['response'][0]['periods'][i]['feelslikeF'],
-                    'weather': resp_json['response'][0]['periods'][i]['weatherPrimary'],
-                    'icon': resp_json['response'][0]['periods'][i]['icon']
+                    "weather": resp_json['response'][0]['periods'][i]['weatherPrimary'],
+                    "icon": resp_json['response'][0]['periods'][i]['icon']
                 }
                 fullForecast.append(res)
         else:
