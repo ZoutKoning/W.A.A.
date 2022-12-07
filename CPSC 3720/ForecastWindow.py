@@ -10,7 +10,7 @@ from ForecastWeatherAPI import forecastWeatherAPI
 from PIL import ImageTk, Image
 
 
-def openWindow(loc):
+def openWindow(Dict):
     h = Helper() 
     topWin = Toplevel()
     topWin.grab_set()      # puts the main window on hold until the activity window is closed.
@@ -60,8 +60,7 @@ def openWindow(loc):
     # Create Another Frame INSIDE the Canvas
     second_frame = Frame(my_canvas, bg = "lightsteelblue2")
     #forecast_weather = h.testForecast()
-    h.updateCount()
-    forecast_weather = forecastWeatherAPI(loc)
+    forecast_weather = Dict
     for dictVal in forecast_weather:
         strValue = h.formatForecastWeather(dictVal)
         tempFrame = Frame(second_frame, width=50, height = 10)
@@ -83,16 +82,3 @@ def openWindow(loc):
         topWin.grab_release()      # releases the control so the user can interact with the main window
         topWin.after(100,lambda:topWin.destroy())
     topWin.protocol("WM_DELETE_WINDOW", on_closingTop)
-
-"""
-#Create and Initialize Window
-window = tk.Tk()                #Create Window
-window.geometry("500x600")      #Width and height of window
-window.resizable(1,1)           #Makes window size fixed
-window.title("Weather App")     #Window Title
-
-h = Helper()  
-button = Button(window, text="open window", command=openWindow).pack()
-
-window.mainloop()
-"""

@@ -7,6 +7,7 @@ import tkinter as tk
 from tkinter import *
 from HelperFile import *
 from CurrentWeatherAPI import getWeatherAPI
+from ForecastWeatherAPI import forecastWeatherAPI
 from ForecastWindow import openWindow
 from ActivityList import Activites
 from PIL import ImageTk, Image
@@ -106,12 +107,10 @@ def weatherFunc():
     count = h.getCount()
     if (count < 100):
         location_val = loc_value.get()
-        h.setLocation(location_val)
         h.updateCount()
         curr_weather = getWeatherAPI(location_val)
         #curr_weather = h.testCurr()
         strDict = json.dumps(curr_weather)
-        print(strDict)
         listE = ["error", "exception", "exceeded", "Endpoint", "not found"]
         if any(i in strDict for i in listE):
             currWeatherText.config(state=NORMAL)
@@ -132,8 +131,9 @@ def weatherFunc():
             changeIcon()
             forecastBtn.configure(state=NORMAL)
             suggestActivityBtn.configure(state=NORMAL)
-            #h.updateCount()
-            #forecast_weather = forecastWeatherAPI(location_val)
+            h.updateCount()
+            forecast_weather = forecastWeatherAPI(location_val)
+            h.setDictList(forecast_weather)
             if (bl_Val == True):
                 h.set_blFirstCall(False)
     else:
@@ -181,8 +181,8 @@ currWeather_frame.pack()
 dummylabel = Label(second_frame, bg = "lightsteelblue2").pack()
 
 def callOpenWin():
-    loc = h.getLocation()
-    openWindow(loc)
+    dictList = h.getDictList()
+    openWindow(dictList)
 
 # Forecasted Weather Output
 forecastBtn = tk.Button(

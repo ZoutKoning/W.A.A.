@@ -12,13 +12,13 @@ class Helper:
         self.counter = 0
         self.icon = ""
         self.blVal = True
-        self.loc = ""
+        self.dictList = ""
     
-    def setLocation(self, location):
-        self.loc = location
+    def setDictList(self, dictL):
+        self.dictList = dictL
     
-    def getLocation(self):
-        return self.loc
+    def getDictList(self):
+        return self.dictList
     
     def set_blFirstCall(self, bl_val):
         self.blVal = bl_val
