@@ -36,7 +36,7 @@ RESULTS:
 <img width="843" alt="Screen Shot 2022-12-07 at 10 39 51 AM" src="https://user-images.githubusercontent.com/112408320/206223417-d3abba70-8293-4519-83bf-620253e55d55.png">
 
 
-
+(Video is very fast due to GitHub < 10mb limit)
 https://user-images.githubusercontent.com/112408320/206325661-f9bc342a-d116-4b2a-8bf7-7f23fffc22ee.mov
 
 
