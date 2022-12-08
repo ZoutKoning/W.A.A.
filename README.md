@@ -12,24 +12,24 @@ Python 3 (recommended):
 
 - Install pillow: pip3 install pillow
 --------------------------------------
-Python 2:
-
-- Install requests: pip install requests
-
-- Install pillow: pip install pillow
---------------------------------------
 
 HOW TO RUN:
 
-1. Download files (Installing the folder to Desktop is recommended)
+Two Options:
+  1. Use Replit link to run the App through Replit Website. 
+      (https://replit.com/@vedantpatel39/WeatherActivityApp?v=1)
+  OR
+  2. Download the files and run locally. 
+      1. Download files (Installing the folder to Desktop is recommended)
 
-!!!PLEASE ENSURE THAT CPSC 3720 IS THE MAIN FOLDER AND IS NOT NESTED INSIDE ANOTHER!!!
+      !!!PLEASE ENSURE THAT CPSC 3720 IS THE MAIN PROJECT FOLDER AND IS NOT NESTED INSIDE ANOTHER!!!
+      (Main Project Folder as in when you are in the terminal running the code or using VScode.)
 
-3. Open terminal
+      3. Open terminal
 
-4. Use command python -u "path \InterfaceGUI.py" (Replace path with your install pathway to the file)
+      4. Use command python -u "path \InterfaceGUI.py" (Replace path with your install pathway to the file)
 
-5. Follow the on screen instructions and enjoy your day
+      5. Follow the on screen instructions and enjoy your day
 
 -------------------------------------- 
 RESULTS: 
