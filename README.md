@@ -38,10 +38,6 @@ RESULTS:
 
 (Video is very fast due to GitHub < 10mb limit)
 
-https://user-images.githubusercontent.com/112408320/206325661-f9bc342a-d116-4b2a-8bf7-7f23fffc22ee.mov
-
-
-
 https://user-images.githubusercontent.com/112408320/206327593-d2bd2696-3066-4c25-8c4b-08dca3ad9d71.mov
 
 
