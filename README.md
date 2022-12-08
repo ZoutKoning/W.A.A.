@@ -17,6 +17,7 @@ HOW TO RUN:
 
 Two Options:
   1. Use Replit link open the app through Replit Website and click on play to use the app.
+  And if that doesn't work then click on "run code" in green to use the app.
   (https://replit.com/@vedantpatel39/WeatherActivityApp?v=1)
   
   OR
