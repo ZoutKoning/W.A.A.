@@ -16,8 +16,8 @@ Python 3 (recommended):
 HOW TO RUN:
 
 Two Options:
-  1. Use Replit link to run the App through Replit Website. 
-      (https://replit.com/@vedantpatel39/WeatherActivityApp?v=1)
+  1. Use Replit link open the app through Replit Website and click on play to use the app.
+  (https://replit.com/@vedantpatel39/WeatherActivityApp?v=1)
   
   OR
   
