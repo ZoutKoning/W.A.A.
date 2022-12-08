@@ -11,6 +11,7 @@ from ForecastWeatherAPI import forecastWeatherAPI
 from ForecastWindow import openWindow
 from ActivityList import Activites
 from PIL import ImageTk, Image
+from pathlib import Path
 
 #Create and Initialize Window
 window = tk.Tk()                #Create Window
@@ -20,48 +21,48 @@ window.title("Weather App")     #Window Title
 
 
 # Create A Main frame
-main_frame = Frame(
+main_frame = tk.Frame(
     window,
     width= 400,
     height= 400
 )
-main_frame.pack(fill = BOTH, expand = 1)
+main_frame.pack(fill = tk.BOTH, expand = 1)
 
 # Create Frame for X Scrollbar
-sec = Frame(main_frame) 
-sec.pack(fill = X,side = BOTTOM)
+sec = tk.Frame(main_frame) 
+sec.pack(fill = tk.X,side = tk.BOTTOM)
 
 # Create A Canvas
-my_canvas = Canvas(
+my_canvas = tk.Canvas(
     main_frame,
     width= 400,
     height= 400,
     bg = "lightsteelblue2"
 )
-my_canvas.pack(side = LEFT,fill = BOTH, expand = 1)
+my_canvas.pack(side = tk.LEFT,fill = tk.BOTH, expand = 1)
 
 # Add scrollbars for x and y axis
 x_scrollbar = tk.Scrollbar(
     sec, 
-    orient = HORIZONTAL, 
+    orient = tk.HORIZONTAL, 
     command = my_canvas.xview
 )
-x_scrollbar.pack(side = BOTTOM, fill = X)
+x_scrollbar.pack(side = tk.BOTTOM, fill = tk.X)
 
 y_scrollbar = tk.Scrollbar(
     main_frame, 
-    orient = VERTICAL, 
+    orient = tk.VERTICAL, 
     command = my_canvas.yview
 )
-y_scrollbar.pack(side = RIGHT, fill = Y)
+y_scrollbar.pack(side = tk.RIGHT, fill = tk.Y)
 
 # Configure the canvas
 my_canvas.configure(xscrollcommand = x_scrollbar.set)
 my_canvas.configure(yscrollcommand = y_scrollbar.set)
-my_canvas.bind("<Configure>",lambda e: my_canvas.config(scrollregion = my_canvas.bbox(ALL)))
+my_canvas.bind("<Configure>",lambda e: my_canvas.config(scrollregion = my_canvas.bbox(tk.ALL)))
 
 # Create Another Frame INSIDE the Canvas
-second_frame = Frame(my_canvas, bg = "lightsteelblue2")
+second_frame = tk.Frame(my_canvas, bg = "lightsteelblue2")
 
 # The greeting popup when the application is opened
 greeting = tk.Label(second_frame, fg = "lightblue4", text = "Welcome to the Weather Activity App", font = 'Sans-serif 18 bold').pack(pady = 10)
@@ -74,26 +75,26 @@ quote = h.getQuoteDict()
 # used to update quote text in the app
 def quoteT():
     qText = "Quote: " + quote["quote"]
-    quoteText.insert(INSERT, qText)
-    quoteText.config(state=DISABLED)
+    quoteText.insert(tk.INSERT, qText)
+    quoteText.config(state=tk.DISABLED)
     
 # used to update author and category info underneath the quote text. 
 def author_categoryT():
     acText = "Author: " + quote["author"] + "\nCategory: " + quote["category"]
-    authorText.insert(INSERT, acText)
-    authorText.config(state=DISABLED)
+    authorText.insert(tk.INSERT, acText)
+    authorText.config(state=tk.DISABLED)
 
 # This is the quote of the day, coming from the quoteAPI
 quoteLabel = tk.Label(second_frame, text = "Quote of the day:", fg = "black",font = 'Sans-serif 12 bold').pack(pady = 10)
-quoteText = Text(second_frame, width = 46, height = 4, wrap=WORD)
+quoteText = tk.Text(second_frame, width = 46, height = 4, wrap=tk.WORD)
 quoteT()
 quoteText.pack()
-authorText = Text(second_frame, width = 46, height = 2, wrap=WORD)
+authorText = tk.Text(second_frame, width = 46, height = 2, wrap=tk.WORD)
 author_categoryT()
 authorText.pack()
 
 # dummy label to create some space
-dummylabel = Label(second_frame, bg = "lightsteelblue2").pack(pady=5)
+dummylabel = tk.Label(second_frame, bg = "lightsteelblue2").pack(pady=5)
 
 # called on to change the icon of the current weather icon
 def changeIcon():
@@ -106,9 +107,9 @@ def changeIcon():
 def weatherFunc():
     bl_Val = h.get_blFirstCall()
     if (bl_Val == False):
-        currWeatherText.config(state=NORMAL)
+        currWeatherText.config(state=tk.NORMAL)
         currWeatherText.delete("1.0", "end")
-        currWeatherText.config(state=DISABLED)
+        currWeatherText.config(state=tk.DISABLED)
     count = h.getCount()
     if (count < 100):
         location_val = loc_value.get()
@@ -118,24 +119,24 @@ def weatherFunc():
         strDict = json.dumps(curr_weather)
         listE = ["error", "exception", "exceeded", "Endpoint", "not found"]
         if any(i in strDict for i in listE):
-            currWeatherText.config(state=NORMAL)
-            currWeatherText.insert(INSERT, strDict)
+            currWeatherText.config(state=tk.NORMAL)
+            currWeatherText.insert(tk.INSERT, strDict)
             strText = "\nPlease enter valid location and try again"
-            currWeatherText.insert(INSERT, strText)
-            currWeatherText.config(state=DISABLED)
-            forecastBtn.configure(state=DISABLED)
-            suggestActivityBtn.configure(state=DISABLED)
+            currWeatherText.insert(tk.INSERT, strText)
+            currWeatherText.config(state=tk.DISABLED)
+            forecastBtn.configure(state=tk.DISABLED)
+            suggestActivityBtn.configure(state=tk.DISABLED)
             if (bl_Val == True):
                 h.set_blFirstCall(False)
         else:
             weatherStr = h.formatCurrWeather(curr_weather)
-            currWeatherText.config(state=NORMAL)
-            currWeatherText.insert(INSERT, weatherStr)
-            currWeatherText.config(state=DISABLED)
+            currWeatherText.config(state=tk.NORMAL)
+            currWeatherText.insert(tk.INSERT, weatherStr)
+            currWeatherText.config(state=tk.DISABLED)
             h.setWeatherIcon(curr_weather["icon"])
             changeIcon()
-            forecastBtn.configure(state=NORMAL)
-            suggestActivityBtn.configure(state=NORMAL)
+            forecastBtn.configure(state=tk.NORMAL)
+            suggestActivityBtn.configure(state=tk.NORMAL)
             h.updateCount()
             forecast_weather = forecastWeatherAPI(location_val)
             h.setDictList(forecast_weather)
@@ -143,21 +144,21 @@ def weatherFunc():
                 h.set_blFirstCall(False)
     else:
         val = "Limit reached of using the WAA for the day. Please come back tomorrow to use the app again."
-        currWeatherText.insert(INSERT, val)
+        currWeatherText.insert(tk.INSERT, val)
     
 
 # Prompt the user to enter their location
-loc_value = StringVar()
-loc_head= Label(second_frame, text = 'Enter Location:',fg = "black", font = 'Sans-serif 12 bold').pack(pady = 10)
-loc_Frame = LabelFrame(second_frame, text ="Location: 'zipcode', 'latitude,longitude', 'city,state' or 'city,country'")
-inp_loc = Entry(loc_Frame, textvariable = loc_value,  width = 32, font = 'Sans-serif 14 bold').pack() #entry field
+loc_value = tk.StringVar()
+loc_head= tk.Label(second_frame, text = 'Enter Location:',fg = "black", font = 'Sans-serif 12 bold').pack(pady = 10)
+loc_Frame = tk.LabelFrame(second_frame, text ="Location: 'zipcode', 'latitude,longitude', 'city,state' or 'city,country'")
+inp_loc = tk.Entry(loc_Frame, textvariable = loc_value,  width = 32, font = 'Sans-serif 14 bold').pack() #entry field
 loc_Frame.pack()
 
 # This retrieves the location after being entered
 location = loc_value.get()
 
 #Button to check the weather
-Button(
+tk.Button(
     second_frame, 
     command = weatherFunc, 
     text = "Check the Weather", 
@@ -170,21 +171,21 @@ Button(
     ).pack(pady= 5)
 
 # add some space between different parts.
-dummylabel = Label(second_frame, bg = "lightsteelblue2").pack()
+dummylabel = tk.Label(second_frame, bg = "lightsteelblue2").pack()
 
-currWeather_frame = Frame(second_frame, bg = "lightsteelblue2")
+currWeather_frame = tk.Frame(second_frame, bg = "lightsteelblue2")
 # Current Weather Output
-weather_now = Label(currWeather_frame, text = "Current Weather:",fg = "black", font = 'Sans-serif 12 bold').pack()
+weather_now = tk.Label(currWeather_frame, text = "Current Weather:",fg = "black", font = 'Sans-serif 12 bold').pack()
 iconPath = "Icons/blank.png"
 iconPng = ImageTk.PhotoImage(Image.open(iconPath))
-iconLabel = Label(currWeather_frame, image = iconPng, bg="lightsteelblue2")
+iconLabel = tk.Label(currWeather_frame, image = iconPng, bg="lightsteelblue2")
 iconLabel.pack()
-currWeatherText = Text(currWeather_frame, width = 40, height = 6, state=DISABLED, wrap=WORD)
+currWeatherText = tk.Text(currWeather_frame, width = 40, height = 6, state=tk.DISABLED, wrap=tk.WORD)
 currWeatherText.pack()
 currWeather_frame.pack()
 
 # add some space between different parts.
-dummylabel = Label(second_frame, bg = "lightsteelblue2").pack()
+dummylabel = tk.Label(second_frame, bg = "lightsteelblue2").pack()
 
 # called on when the user wants to see the forecast.
 def callOpenWin():
@@ -202,25 +203,25 @@ forecastBtn = tk.Button(
     activebackground = "lightblue3", 
     padx = 5, 
     pady = 5,
-    state=DISABLED
+    state=tk.DISABLED
     )
 forecastBtn.pack(pady=10)
 
 # Function to retrieve the Activities
 def activitiesFunc():
     # creates a new window to display suggested activity.
-    top = Toplevel()
+    top = tk.Toplevel()
     top.grab_set()      # puts the main window on hold until the activity window is closed.
     top.geometry("380x100")
     #top.title("Suggested Activity")
     icon = h.getWeatherIcon()
     activities = Activites(icon)  #Get the activities from the weather icon
-    label = Label(top, text = "Suggested Activities:", font = 'Sans-serif 12 bold').pack(pady = 3)
-    text = Text(top, width=300, height=80, font='Sans-serif 10 bold', wrap=WORD)
+    tk.Label(top, text = "Suggested Activities:", font = 'Sans-serif 12 bold').pack(pady = 3)
+    text = tk.Text(top, width=300, height=80, font='Sans-serif 10 bold', wrap=tk.WORD)
     text.tag_configure("front_tag", justify ='center')
     text.insert("1.0", activities)
     text.tag_add("front_tag", "1.0", "end")
-    text.config(state=DISABLED)
+    text.config(state=tk.DISABLED)
     text.pack()
     def on_closingTop():  
         top.grab_release()      # releases the control so the user can interact with the main window
@@ -238,7 +239,7 @@ suggestActivityBtn = tk.Button(
     activebackground = "lightblue3", 
     padx = 5, 
     pady = 5,
-    state=DISABLED
+    state=tk.DISABLED
     )
 suggestActivityBtn.pack(pady=10)
 

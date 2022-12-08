@@ -5,6 +5,7 @@ from QuoteAPI_1 import *
 import json
 from ForecastWeatherAPI import filterResponse
 from CurrentWeatherAPI import filterCurrResponse
+from pathlib import Path
 
 # helper class for to call upon when needed to use the helper functions.
 class Helper:
@@ -14,6 +15,7 @@ class Helper:
         self.icon = ""
         self.blVal = True
         self.dictList = ""
+        self.fp = Path(__file__).with_name('file.json')
     
     # sets the forecast dict list. 
     def setDictList(self, dictL):
@@ -65,7 +67,7 @@ class Helper:
             "count": 0,
             "Quote of the day": quoteDict
         }
-        wfile = open("file.json", "w")
+        wfile = open(self.fp, "w")
         json_object = json.dumps(Dict, indent=4)
         wfile.write(json_object)
         wfile.close()
@@ -73,13 +75,13 @@ class Helper:
     # used to update the count in the file.json to keep monitoring it 
     # throughout the day.
     def updateCount(self):
-        rf = open("file.json", "r")
+        rf = open(self.fp, "r")
         jsonDict = json.load(rf)
         val = jsonDict["count"]
         jsonDict["count"] = val + 1
         self.setCount(int(jsonDict["count"]))
         json_object = json.dumps(jsonDict, indent=4)
-        wf = open("file.json", "w")
+        wf = open(self.fp, "w")
         wf.write(json_object)
         wf.close()
         rf.close()
@@ -87,7 +89,7 @@ class Helper:
     # used when the user the opens the app. this func gets the quote info
     # from the file.json for quote of the day. 
     def openningApp(self):
-        f = open("file.json", "r")
+        f = open(self.fp, "r")
         x = datetime.datetime.now()
         date = x.strftime("%m-%d-%Y")
         jsonDict = json.load(f)
