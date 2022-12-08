@@ -18,11 +18,12 @@ HOW TO RUN:
 Two Options:
   1. Use Replit link to run the App through Replit Website. 
       (https://replit.com/@vedantpatel39/WeatherActivityApp?v=1)
+  
   OR
   2. Download the files and run locally. 
       1. Download files (Installing the folder to Desktop is recommended)
 
-      !!!PLEASE ENSURE THAT CPSC 3720 IS THE MAIN PROJECT FOLDER AND IS NOT NESTED INSIDE ANOTHER!!!
+        !!!PLEASE ENSURE THAT CPSC 3720 IS THE MAIN PROJECT FOLDER AND IS NOT NESTED INSIDE ANOTHER!!!
       (Main Project Folder as in when you are in the terminal running the code or using VScode.)
 
       3. Open terminal
@@ -33,6 +34,7 @@ Two Options:
 
 -------------------------------------- 
 RESULTS: 
+
 <img width="843" alt="Screen Shot 2022-12-07 at 10 39 51 AM" src="https://user-images.githubusercontent.com/112408320/206223417-d3abba70-8293-4519-83bf-620253e55d55.png">
 
 
