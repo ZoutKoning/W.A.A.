@@ -29,7 +29,7 @@ User Stories:
 11. As a user, I can search for zip codes within a certain mile radius of me and check if their weather conditions are suitable.
 
 Functional Requirements:
-1. Collect desired user location through zip code entered
+1. Collect desired location through what user entered
 2. Display current weather data
 3. Display activity recommendations
 4. Display quote of the current day
