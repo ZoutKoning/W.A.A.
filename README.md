@@ -8,7 +8,7 @@ Tasks assigned:
   2. Vedant Patel - Helper Code/GUI
   3. Joseph Suter - Current Weather API
   4. Zoie Rast - GUI
-  5.Tirth Patel- Forecast Weather API
+  5. Tirth Patel- Forecast Weather API
 
 
 API's Used:
