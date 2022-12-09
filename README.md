@@ -2,6 +2,15 @@
 Developed by: 
 Vedant Patel, Zoie Rast, Tirth Patel, Joseph Suter, Cole Ramos
 
+Tasks assigned:
+(If anyone is done with their tasks then help out with other APIs, but more importantly help out with GUI.)
+  1. Cole Ramos - Quote API
+  2. Vedant Patel - Helper Code/GUI
+  3. Joseph Suter - Current Weather API
+  4. Zoie Rast - GUI
+  5.Tirth Patel- Forecast Weather API
+
+
 API's Used:
 1. QuoteAPI (from API Ninjas) [https://api-ninjas.com/api/quotes]
 2. Current WeatherAPI (Aeris Weather APIs) [https://www.aerisweather.com/develop/api/]
