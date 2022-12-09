@@ -48,7 +48,7 @@ Prerequisites for first-time run locally:
 
 Python 3 (recommended installs if you haven't already):
 
-- Install requests: pip3 install tkinter
+- Install tkinter: pip3 install tkinter
 
 - Install requests: pip3 install requests
 
