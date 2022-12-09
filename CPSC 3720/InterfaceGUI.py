@@ -111,7 +111,7 @@ def weatherFunc():
         currWeatherText.delete("1.0", "end")
         currWeatherText.config(state=tk.DISABLED)
     count = h.getCount()
-    if (count < 100):
+    if (count < 200):
         location_val = loc_value.get()
         h.updateCount()
         curr_weather = getWeatherAPI(location_val)
