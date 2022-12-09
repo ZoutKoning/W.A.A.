@@ -3,9 +3,9 @@ Developed by:
 Vedant Patel, Zoie Rast, Tirth Patel, Joseph Suter, Cole Ramos
 
 API's Used:
-1. QuoteAPI (from API Ninjas)
-2. Current WeatherAPI (Aeris Weather APIs)
-3. Forecast WeatherAPI (Aeris Weather APIs)
+1. QuoteAPI (from API Ninjas) [https://api-ninjas.com/api/quotes]
+2. Current WeatherAPI (Aeris Weather APIs) [https://www.aerisweather.com/develop/api/]
+3. Forecast WeatherAPI (Aeris Weather APIs) [https://www.aerisweather.com/develop/api/]
 
 User Stories:
 1. As a user I can see weather conditions so that I can dress accordingly.
